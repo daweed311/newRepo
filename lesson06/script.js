@@ -8,14 +8,14 @@ const randomNum = function (n) {
   return Math.floor(Math.random() * Math.floor(n));
 };
 
-const start = function () {
+const runGame = function () {
   let rightAnswer = randomNum(100);
   let attempt = 10;
   const game = function () {
     attempt--;
     if (attempt < 0) {
       if (confirm("Попытки закончились, хотите сыграть еще?")) {
-        start();
+        runGame();
       } else {
         alert("До свидания!");
         return;
@@ -36,7 +36,7 @@ const start = function () {
           game();
         } else {
           if (confirm("Поздравляю, вы угадали! Сыграем еще?")) {
-            start();
+            runGame();
           } else {
             alert("Игра окончена!");
             return;
@@ -50,4 +50,4 @@ const start = function () {
   };
   game();
 };
-start();
+runGame();
