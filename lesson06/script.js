@@ -4,12 +4,12 @@ const isNumber = function (num) {
   return !isNaN(parseFloat(num)) && isFinite(num);
 };
 
-const randomNumber = function (n) {
+const randomNum = function (n) {
   return Math.floor(Math.random() * Math.floor(n));
 };
 
 const start = function () {
-  let myNumber = randomNumber(100);
+  let rightAnswer = randomNum(100);
   let attempt = 10;
   const game = function () {
     attempt--;
@@ -28,14 +28,14 @@ const start = function () {
       }
       if (isNumber(input)) {
         const yourNumber = +input;
-        if (yourNumber > myNumber) {
+        if (yourNumber > rightAnswer) {
           alert(`Загаданное число больше, осталось ${attempt} попыток.`);
           game();
-        } else if (yourNumber < myNumber) {
+        } else if (yourNumber < rightAnswer) {
           alert(`Загаданное число меньше, осталось ${attempt} попыток.`);
           game();
         } else {
-          if (confirm("Поздравляю, Вы угадали!!! Сыграем еще?")) {
+          if (confirm("Поздравляю, вы угадали! Сыграем еще?")) {
             start();
           } else {
             alert("Игра окончена!");
